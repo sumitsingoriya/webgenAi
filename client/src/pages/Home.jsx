@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from "motion/react"
 import LoginModal from '../components/LoginModal'
-import { useDispatch, useSelector } from 'react-redux'
-import { Coins } from "lucide-react"
+// import { useDispatch, useSelector } from 'react-redux'
+// import { Coins } from "lucide-react"
 import { serverUrl } from '../App'
 import axios from 'axios'
-import { setUserData } from '../redux/userSlice'
+// import { setUserData } from '../redux/userSlice'
 import { useNavigate } from 'react-router-dom'
 function Home() {
 
@@ -16,16 +16,17 @@ function Home() {
     ]
 
     const [openLogin, setOpenLogin] = useState(false)
-    const { userData } = useSelector(state => state.user)
+    const userData = null;
+    // const { userData } = useSelector(state => state.user)
     const [openProfile, setOpenProfile] = useState(false)
     const [websites, setWebsites] = useState(null)
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogOut = async () => {
         console.log("logout click")
         try {
             await axios.get(`${serverUrl}/api/auth/logout`, { withCredentials: true })
-            dispatch(setUserData(null))
+            // dispatch(setUserData(null))
             setOpenProfile(false)
         } catch (error) {
             console.log(error)
@@ -65,7 +66,7 @@ function Home() {
                             Pricing
                         </div>
                         {userData && <div className='hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm cursor-pointer hover:bg-white/10 transition' onClick={() => navigate("/pricing")}>
-                            <Coins size={14} className='text-yellow-400' />
+                            {/* <Coins size={14} className='text-yellow-400' /> */}
                             <span className='text-zinc-300'>Credits</span>
                             <span>{userData.credits}</span>
                             <span className='font-semibold'>+</span>
@@ -100,7 +101,7 @@ function Home() {
                                                 </div>
 
                                                 <button className='md:hidden w-full px-4 py-3 flex items-center gap-2 text-sm border-b border-white/10 hover:bg-white/5'>
-                                                    <Coins size={14} className='text-yellow-400' />
+                                                    {/* <Coins size={14} className='text-yellow-400' /> */}
                                                     <span className='text-zinc-300'>Credits</span>
                                                     <span>{userData.credits}</span>
                                                     <span className='font-semibold'>+</span>
