@@ -4,10 +4,10 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import axios from "axios";
 import { serverUrl } from "../App";
-// import { useDispatch } from "react-redux";
-// import { setUserData } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../redux/userSlice";
 function LoginModal({ open, onClose }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleGoogleAuth = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -20,7 +20,7 @@ function LoginModal({ open, onClose }) {
         },
         { withCredentials: true },
       );
-      // dispatch(setUserData(data));
+      dispatch(setUserData(data));
       onClose();
     } catch (error) {
       console.log(error);
