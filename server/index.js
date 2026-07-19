@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import userRouter from "./routes/user.routes.js"
 import websiteRouter from "./routes/website.routes.js"
-// import billingRouter from "./routes/billing.routes.js"
+import billingRouter from "./routes/billing.routes.js"
 // import { stripeWebhook } from "./controllers/stripeWebhook.controller.js"
 
 const app=express()
@@ -23,7 +23,7 @@ app.use(cors({
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
 app.use("/api/website",websiteRouter)
-// app.use("/api/billing",billingRouter)
+app.use("/api/billing",billingRouter)
 
 
 app.listen(port,()=>{
