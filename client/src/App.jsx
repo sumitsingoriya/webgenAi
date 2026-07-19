@@ -12,7 +12,7 @@ import WebsiteEditor from "./pages/Editor";
 import LiveSite from "./pages/LiveSite";
 import Pricing from "./pages/Pricing";
 
-export const serverUrl = "http://localhost:8000";
+export const serverUrl = "https://webgenai-fnal.onrender.com";
 function App() {
   useGetCurrentUser();
 
