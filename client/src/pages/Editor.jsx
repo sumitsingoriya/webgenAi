@@ -8,7 +8,7 @@ import { ArrowLeft, Code, Code2, MessageCircle, MessageSquare, Monitor, Rocket, 
 import { useRef } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 
-// import Editor from '@monaco-editor/react';
+import Editor from '@monaco-editor/react';
 function WebsiteEditor() {
     const { id } = useParams()
     const [website, setWebsite] = useState(null)
